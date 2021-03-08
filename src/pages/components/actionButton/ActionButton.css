@@ -1,0 +1,40 @@
+.action-button {
+  background-color: #f6f6f6;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: .5;
+  outline: none;
+  height: 40px;
+  width: 40px;
+  transition: all .2s;
+}
+.action-button:hover,
+.action-button:focus {
+  background-color: #e6e6e6;
+  opacity: .8;
+}
+.action-button:active {
+  background-color: #d6d6d6;
+  opacity: 1;
+}
+.action-button.delete {
+  background-image: url('/images/ic_delete_black2.png');
+}
+@media screen and (min-width: 375px) {
+  .action-button {
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .action-button {
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
+  }
+}

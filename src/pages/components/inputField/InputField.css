@@ -1,0 +1,61 @@
+.input-field {
+  color: #888888;
+  font-size: 13px;
+}
+.input-field span {
+  display: block;
+}
+.input-field input,
+.input-field select,
+.input-field textarea {
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #e6e6e6;
+  font-size: 14px;
+  padding: 5px 10px;
+  width: 100%;
+  outline: none;
+  transition: all .2s;
+}
+.input-field input:focus,
+.input-field select:focus,
+.input-field textarea:focus {
+  border-color: #9c27b0;
+}
+.input-field input:read-only,
+.input-field select:read-only,
+.input-field textarea:read-only {
+  cursor: default;
+}
+.input-field input::placeholder,
+.input-field select::placeholder,
+.input-field textarea::placeholder {
+  color: #bbbbbb;
+}
+.input-field textarea {
+  border: 2px solid #e6e6e6;
+  height: 6em;
+  margin-top: 5px;
+  resize: none;
+}
+@media screen and (min-width: 375px) {
+  .input-field {
+    font-size: 14px;
+  }
+  .input-field input,
+  .input-field select,
+  .input-field textarea,
+  .input-field button {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .input-field {
+    font-size: 15px;
+  }
+  .input-field input,
+  .input-field select,
+  .input-field textarea {
+    font-size: 17px;
+  }
+}

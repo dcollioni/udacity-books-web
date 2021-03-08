@@ -1,0 +1,36 @@
+.input-button {
+  background-color: #9c27b0;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+  color: #fbfbfb;
+  cursor: pointer;
+  font-size: 15px;
+  outline: none;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+  transition: all .2s;
+}
+.input-button:hover,
+.input-button:focus {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+}
+.input-button:active {
+  background-color: #6a0080;
+}
+.input-button:disabled {
+  background-color: #6a0080;
+  box-shadow: none;
+  cursor: default;
+}
+@media screen and (min-width: 375px) {
+  .input-button {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .input-button {
+    font-size: 17px;
+  }
+}

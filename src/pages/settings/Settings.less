@@ -1,0 +1,179 @@
+@import "./../../_default.less";
+
+#settings {
+
+  header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+
+    h2 {
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    margin: 10px 0;
+
+    .user-info {
+      background: @color-white;
+      border-radius: 2px;
+      text-align: center;
+      padding: 15px;
+      .with-shadow();
+
+      .picture {
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        border-radius: 80px;
+        display: inline-block;
+        height: 80px;
+        width: 80px;
+      }
+
+      h3 {
+        font-size: 15px;
+        margin: 0;
+        text-align: center;
+      }
+
+      .provider {
+        font-size: 12px;
+        margin: 0;
+
+        span {
+          text-transform: capitalize;
+        }
+      }
+
+      button {
+        font-size: 12px;
+        margin-top: 10px;
+        max-width: 180px;
+      }
+    }
+
+    .language-info {
+      background: @color-white;
+      border-radius: 2px;
+      padding: 15px;
+      .with-shadow();
+
+      h3 {
+        font-size: 15px;
+        margin: 0;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+          margin-top: 10px;
+
+          button {
+            background-color: @color-background;
+            background-repeat: no-repeat;
+            background-position: calc(100% - 5px) center;
+            background-size: 25px;
+            color: @color-text;
+            font-size: 12px;
+            max-width: 180px;
+            text-align: left;
+
+            &.selected {
+              background-image: url('/images/ic_check_purple.png');
+              color: @color-primary;
+              font-weight: bold;
+            }
+
+            &:hover, &:focus {
+              box-shadow: 0px 2px 3px rgba(0, 0, 0, .3);
+            }
+
+            &:active {
+              background-color: @color-background-dark;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: @phone-width) {
+      .user-info {
+        h3 {
+          font-size: 16px;
+        }
+
+        .provider {
+          font-size: 13px;
+        }
+
+        button {
+          font-size: 13px;
+        }
+      }
+
+      .language-info {
+        h3 {
+          font-size: 16px;
+        }
+
+        ul {
+          li {
+            button {
+              font-size: 13px;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: @desktop-width) {
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+
+      .user-info {
+        display: grid;
+        grid-template-columns: 140px 1fr;
+        text-align: left;
+
+        .picture {
+          grid-row: span 2;
+          height: 120px;
+          width: 120px;
+        }
+
+        h3 {
+          font-size: 18px;
+          margin-top: 12px;
+          text-align: left;
+        }
+
+        .provider {
+          font-size: 14px;
+        }
+
+        button {
+          font-size: 14px;
+          margin-top: 0;
+        }
+      }
+
+      .language-info {
+        ul {
+          li {
+            button {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

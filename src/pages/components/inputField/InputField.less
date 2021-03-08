@@ -1,0 +1,56 @@
+@import "./../../../_default.less";
+
+.input-field {
+  color: @color-text-secondary;
+  font-size: 13px;
+
+  span {
+    display: block;
+  }
+
+  input, select, textarea {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid @color-background-dark;
+    font-size: 14px;
+    padding: 5px 10px;
+    width: 100%;
+    outline: none;
+    .transitionable();
+
+    &:focus {
+      border-color: @color-primary;
+    }
+
+    &:read-only {
+      cursor: default;
+    }
+
+    &::placeholder {
+      color: @color-text-placeholder;
+    }
+  }
+
+  textarea {
+    border: 2px solid @color-background-dark;
+    height: 6em;
+    margin-top: 5px;
+    resize: none;
+  }
+
+  @media screen and (min-width: @phone-width) {
+    font-size: 14px;
+
+    input, select, textarea, button {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (min-width: @desktop-width) {
+    font-size: 15px;
+
+    input, select, textarea {
+      font-size: 17px;
+    }
+  }
+}

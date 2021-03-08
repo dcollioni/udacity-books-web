@@ -1,0 +1,42 @@
+@import "./../../../_default.less";
+
+.action-button {
+  background-color: @color-background;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 25px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  opacity: .5;
+  outline: none;
+  height: 40px;
+  width: 40px;
+  .transitionable();
+
+  &:hover, &:focus {
+    background-color: @color-background-dark;
+    opacity: .8;
+  }
+
+  &:active {
+    background-color: @color-background-darker;
+    opacity: 1;
+  }
+
+  &.delete {
+    background-image: url('/images/ic_delete_black2.png');
+  }
+
+  @media screen and (min-width: @phone-width) {
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
+  }
+
+  @media screen and (min-width: @desktop-width) {
+    background-size: 30px;
+    height: 45px;
+    width: 45px;
+  }
+}

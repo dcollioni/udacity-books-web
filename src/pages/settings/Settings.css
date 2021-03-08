@@ -1,0 +1,135 @@
+#settings header {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+#settings header h2 {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+#settings .wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+  margin: 10px 0;
+}
+#settings .wrapper .user-info {
+  background: #ffffff;
+  border-radius: 2px;
+  text-align: center;
+  padding: 15px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#settings .wrapper .user-info .picture {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 80px;
+  display: inline-block;
+  height: 80px;
+  width: 80px;
+}
+#settings .wrapper .user-info h3 {
+  font-size: 15px;
+  margin: 0;
+  text-align: center;
+}
+#settings .wrapper .user-info .provider {
+  font-size: 12px;
+  margin: 0;
+}
+#settings .wrapper .user-info .provider span {
+  text-transform: capitalize;
+}
+#settings .wrapper .user-info button {
+  font-size: 12px;
+  margin-top: 10px;
+  max-width: 180px;
+}
+#settings .wrapper .language-info {
+  background: #ffffff;
+  border-radius: 2px;
+  padding: 15px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#settings .wrapper .language-info h3 {
+  font-size: 15px;
+  margin: 0;
+}
+#settings .wrapper .language-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#settings .wrapper .language-info ul li {
+  margin-top: 10px;
+}
+#settings .wrapper .language-info ul li button {
+  background-color: #f6f6f6;
+  background-repeat: no-repeat;
+  background-position: calc(95%) center;
+  background-size: 25px;
+  color: #303030;
+  font-size: 12px;
+  max-width: 180px;
+  text-align: left;
+}
+#settings .wrapper .language-info ul li button.selected {
+  background-image: url('/images/ic_check_purple.png');
+  color: #9c27b0;
+  font-weight: bold;
+}
+#settings .wrapper .language-info ul li button:hover,
+#settings .wrapper .language-info ul li button:focus {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
+}
+#settings .wrapper .language-info ul li button:active {
+  background-color: #e6e6e6;
+}
+@media screen and (min-width: 375px) {
+  #settings .wrapper .user-info h3 {
+    font-size: 16px;
+  }
+  #settings .wrapper .user-info .provider {
+    font-size: 13px;
+  }
+  #settings .wrapper .user-info button {
+    font-size: 13px;
+  }
+  #settings .wrapper .language-info h3 {
+    font-size: 16px;
+  }
+  #settings .wrapper .language-info ul li button {
+    font-size: 13px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #settings .wrapper {
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+  }
+  #settings .wrapper .user-info {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    text-align: left;
+  }
+  #settings .wrapper .user-info .picture {
+    grid-row: span 2;
+    height: 120px;
+    width: 120px;
+  }
+  #settings .wrapper .user-info h3 {
+    font-size: 18px;
+    margin-top: 12px;
+    text-align: left;
+  }
+  #settings .wrapper .user-info .provider {
+    font-size: 14px;
+  }
+  #settings .wrapper .user-info button {
+    font-size: 14px;
+    margin-top: 0;
+  }
+  #settings .wrapper .language-info ul li button {
+    font-size: 14px;
+  }
+}

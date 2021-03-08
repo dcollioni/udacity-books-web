@@ -1,0 +1,106 @@
+#book-list header h2 {
+  margin-bottom: 4px;
+}
+#book-list header h2 span {
+  color: #888888;
+  font-size: 10px;
+  font-weight: normal;
+  margin-left: 10px;
+}
+@media screen and (min-width: 375px) {
+  #book-list header h2 span {
+    font-size: 12px;
+  }
+}
+#book-list header .MuiLinearProgress-colorPrimary {
+  background-color: #d6d6d6;
+}
+#book-list header .MuiLinearProgress-barColorPrimary {
+  background-color: #9c27b0;
+}
+#book-list .book-list {
+  margin: 20px 0;
+}
+#book-list .book-list .book-list-item {
+  background: #ffffff;
+  border-radius: 2px;
+  color: #303030;
+  display: grid;
+  font-size: 13px;
+  grid-template-columns: 4fr 1fr;
+  margin-bottom: 6px;
+  padding: 10px;
+  text-decoration: none;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  transition: all .2s;
+}
+#book-list .book-list .book-list-item:hover {
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+}
+#book-list .book-list .book-list-item:active {
+  background: #f6f6f6;
+}
+#book-list .book-list .book-list-item span {
+  margin: 0 3px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#book-list .book-list .book-list-item span:nth-child(1) {
+  order: 1;
+}
+#book-list .book-list .book-list-item span:nth-child(2) {
+  order: 3;
+  color: #888888;
+}
+#book-list .book-list .book-list-item span:nth-child(3) {
+  order: 2;
+  text-align: right;
+}
+#book-list .book-list .book-list-item span:nth-child(4) {
+  order: 4;
+  text-align: right;
+  color: #888888;
+}
+@media screen and (min-width: 375px) {
+  #book-list .book-list .book-list-item {
+    font-size: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #book-list .book-list .book-list-item {
+    font-size: 17px;
+    grid-template-columns: 4fr 4fr 2fr 1fr;
+  }
+  #book-list .book-list .book-list-item span:nth-child(1) {
+    order: 1;
+  }
+  #book-list .book-list .book-list-item span:nth-child(2) {
+    order: 2;
+    color: inherit;
+  }
+  #book-list .book-list .book-list-item span:nth-child(3) {
+    order: 3;
+    text-align: left;
+  }
+  #book-list .book-list .book-list-item span:nth-child(4) {
+    order: 4;
+    color: inherit;
+  }
+}
+#book-list .book-list .book-list-item.placeholder {
+  border: 2px dashed #e6e6e6;
+  display: block;
+  text-align: center;
+}
+#book-list .book-list .book-list-item.placeholder span {
+  background: url('/images/ic_add_circle_purple.png') left center no-repeat;
+  background-size: contain;
+  color: #9c27b0;
+  padding: 3px 0 3px 30px;
+}
+@media screen and (min-width: 1280px) {
+  #book-list .book-list .book-list-item.placeholder span {
+    padding-left: 35px;
+  }
+}

@@ -1,0 +1,153 @@
+@import "./../../_default.less";
+
+main {
+  min-width: 300px;
+
+  > header {
+    background-color: @color-background-light;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    .with-shadow();
+
+    h1 {
+      display: inline-block;
+      font-size: 18px;
+      margin: 0;
+      padding: 20px;
+
+      a {
+        color: @color-primary-dark;
+        text-decoration: none;
+
+        span {
+          color: @color-text-secondary;
+          font-size: 12px;
+          font-weight: normal;
+          margin-left: 8px;
+        }
+      }
+
+      @media screen and (min-width: @phone-width) {
+        font-size: 20px;
+
+        a {
+          span {
+            font-size: 14px;
+          }
+        }
+      }
+
+      @media screen and (min-width: @desktop-width) {
+        font-size: 22px;
+        padding: 20px 40px;
+
+        a {
+          span {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .user {
+      padding: 0 20px;
+      text-align: right;
+
+      .wrapper {
+        display: inline-block;
+
+        .picture {
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          border-radius: 50px;
+          display: inline-block;
+          margin-top: 14px;
+          height: 35px;
+          width: 35px;
+        }
+
+        .name {
+          display: none;
+        }
+      }
+
+      @media screen and (min-width: @phone-width) {
+        .wrapper {
+          .picture {
+            margin-top: 13px;
+            height: 40px;
+            width: 40px;
+          }
+        }
+      }
+
+      @media screen and (min-width: @desktop-width) {
+        padding: 0 40px;
+
+        .wrapper {
+          cursor: pointer;
+          display: inline-block;
+          padding: 0 10px;
+
+          .picture {
+            transition: all .1s;
+          }
+
+          .name {
+            color: @color-text;
+            display: inline-block;
+            font-size: 14px;
+            margin: 25px 0 25px 10px;
+            vertical-align: top;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 165px;
+            transition: all .1s;
+          }
+
+          &:hover {
+            .picture {
+              box-shadow: 0 1px 3px rgba(0, 0, 0, .3);
+            }
+
+            .name {
+              color: @color-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.unauthorized {
+    > header {
+      display: block;
+      text-align: center;
+    }
+  }
+
+  > section.content {
+    max-width: 1520px;
+    margin: auto;
+    padding: 20px;
+
+    @media screen and (min-width: @desktop-width) {
+      padding: 20px 40px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin: 0;
+
+      @media screen and (min-width: @phone-width) {
+        font-size: 18px;
+      }
+
+      @media screen and (min-width: @desktop-width) {
+        font-size: 20px;
+      }
+    }
+  }
+}

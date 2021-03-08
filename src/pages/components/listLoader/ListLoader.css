@@ -1,0 +1,21 @@
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#list-loader {
+  text-align: center;
+  font-size: 30px;
+  animation: fadeInAndOut 0.5s ease-out infinite alternate;
+}
+#list-loader .bullet {
+  background-color: #888888;
+  border-radius: 10px;
+  display: inline-block;
+  margin-right: 5px;
+  height: 5px;
+  width: 5px;
+}

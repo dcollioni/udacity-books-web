@@ -1,0 +1,25 @@
+@import "./../../../_default.less";
+
+@keyframes fadeInAndOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#list-loader {
+  text-align: center;
+  font-size: 30px;
+  animation: fadeInAndOut .5s ease-out infinite alternate;
+
+  .bullet {
+    background-color: @color-text-secondary;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    height: 5px;
+    width: 5px;
+  }
+}

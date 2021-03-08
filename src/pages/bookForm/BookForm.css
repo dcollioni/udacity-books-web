@@ -1,0 +1,59 @@
+#book-form header {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+}
+#book-form header h2 {
+  display: inline-block;
+  margin-bottom: 12px;
+}
+#book-form header .action-items {
+  text-align: right;
+}
+#book-form header .action-items button {
+  float: right;
+  margin: -7.5px -10.5px 0 0;
+}
+#book-form form {
+  background-color: #ffffff;
+  border-radius: 2px;
+  display: grid;
+  grid-gap: 15px;
+  margin: 10px 0;
+  padding: 20px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+}
+#book-form form button {
+  margin-top: 10px;
+}
+@media screen and (min-width: 375px) {
+  #book-form form {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #book-form form :nth-child(1),
+  #book-form form :nth-child(2),
+  #book-form form :nth-child(3),
+  #book-form form :nth-child(6),
+  #book-form form :nth-child(7),
+  #book-form form :nth-child(8),
+  #book-form form :nth-child(9) {
+    grid-column: span 2;
+  }
+  #book-form form :nth-child(9) {
+    text-align: right;
+  }
+  #book-form form button {
+    max-width: 150px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #book-form form {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  #book-form form :nth-child(8),
+  #book-form form :nth-child(9) {
+    grid-column: span 4;
+  }
+  #book-form form button {
+    max-width: 180px;
+  }
+}
