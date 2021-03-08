@@ -4,7 +4,9 @@ import PropTypes from 'prop-types'
 import './FloatingButton.css'
 
 const FloatingButton = ({ icon, url, title }) => (
+  <div className='floating-button-wrapper'>
   <Link className={`floating-button ${icon}`} to={url} title={title} />
+  </div>
 )
 
 FloatingButton.propTypes = {

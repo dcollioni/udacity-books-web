@@ -14,7 +14,7 @@ const Settings = ({ R, user, settings, onClickSignOut, onClickLanguage }) => (
         <div className='info'>
           <h3>{user.name}</h3>
           <p className='provider'>
-            {R.strings.signedInWith} <span>{user.provider}</span>
+            {R.strings.signedInWith} <span>{user.email}</span>
           </p>
         </div>
         <div>

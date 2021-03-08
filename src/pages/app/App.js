@@ -8,19 +8,21 @@ const App = ({ children, user }) => {
   return (
     <main className={`app ${!user ? 'unauthorized' : ''}`}>
       <header className='app-header'>
-        <h1 className='app-title'>
-          <Link to='/'>
-            Udacity Books
-          </Link>
-        </h1>
-        {user &&
-          <span className='user'>
-            <Link className='wrapper' to='/settings'>
-              <span className='picture' style={{ backgroundImage: `url(${user.picture})` }} />
-              <span className='name'>{user.name}</span>
+        <div className='content'>
+          <h1 className='app-title'>
+            <Link to='/'>
+              Udacity Books
             </Link>
-          </span>
-        }
+          </h1>
+          {user &&
+            <span className='user'>
+              <Link className='wrapper' to='/settings'>
+                <span className='picture' style={{ backgroundImage: `url(${user.picture})` }} />
+                <span className='name'>{user.name}</span>
+              </Link>
+            </span>
+          }
+        </div>
       </header>
       <section className='content'>
         {children}

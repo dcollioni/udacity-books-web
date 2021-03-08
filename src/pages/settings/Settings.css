@@ -37,9 +37,6 @@
   font-size: 12px;
   margin: 0;
 }
-#settings .wrapper .user-info .provider span {
-  text-transform: capitalize;
-}
 #settings .wrapper .user-info button {
   font-size: 12px;
   margin-top: 10px;
@@ -66,7 +63,7 @@
 #settings .wrapper .language-info ul li button {
   background-color: #f6f6f6;
   background-repeat: no-repeat;
-  background-position: calc(95%) center;
+  background-position: calc(100% - 5px) center;
   background-size: 25px;
   color: #303030;
   font-size: 12px;

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { InputButton } from './../components'
 import './Signin.css'
 
 const Signin = ({ R, onClickSignIn }) => {
@@ -10,7 +11,7 @@ const Signin = ({ R, onClickSignIn }) => {
       </header>
 
       <div className='providers'>
-        <button onClick={onClickSignIn}>Sign in</button>
+        <InputButton onClick={onClickSignIn} text="Sign in" />
       </div>
 
       <footer>

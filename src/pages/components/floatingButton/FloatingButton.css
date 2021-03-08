@@ -1,36 +1,53 @@
-.floating-button {
+.floating-button-wrapper {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  text-align: right;
+  margin: 30px auto;
+}
+@media screen and (min-width: 375px) {
+  .floating-button-wrapper {
+    left: 20px;
+    right: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .floating-button-wrapper {
+    left: 40px;
+    right: 40px;
+  }
+}
+@media screen and (min-width: 1520px) {
+  .floating-button-wrapper {
+    margin: 30px auto;
+    width: 1440px;
+  }
+}
+.floating-button-wrapper .floating-button {
   background: #9c27b0 center no-repeat;
   background-size: 25px;
   border-radius: 30px;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   display: inline-block;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  margin: 30px;
   width: 50px;
   height: 50px;
-  transition: all .2s;
+  transition: all 0.2s;
 }
-.floating-button.add {
+.floating-button-wrapper .floating-button.add {
   background-image: url('/images/ic_add_white.png');
 }
-.floating-button:hover,
-.floating-button:focus {
+.floating-button-wrapper .floating-button:hover,
+.floating-button-wrapper .floating-button:focus {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.6);
 }
-.floating-button:active {
+.floating-button-wrapper .floating-button:active {
   background-color: #6a0080;
 }
 @media screen and (min-width: 375px) {
-  .floating-button {
+  .floating-button-wrapper .floating-button {
     background-size: 30px;
     width: 60px;
     height: 60px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .floating-button {
-    margin: 30px 50px;
   }
 }

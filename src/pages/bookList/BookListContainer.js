@@ -6,45 +6,48 @@ import { withRouter } from 'react-router-dom'
 import BookList from './BookList'
 
 class BookListContainer extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
 
     this.fetcher = this.props.fetcher
 
     this.state = {
       books: [],
-      hasNextPage: true,
-      nextPage: 1,
-      listProgress: 0
+      listProgress: 0,
+      loading: true,
     }
 
     this.loadBooks = this.loadBooks.bind(this)
   }
 
-  async loadBooks () {
-    const res = await this.fetcher.get(`books?page=${this.state.nextPage}`)
-
-    if (res.ok) {
-      let { books, hasNextPage, nextPage, totalDocs } = await res.json()
-      books = [...this.state.books, ...books]
-
-      this.setState({ books, hasNextPage, nextPage, listProgress: totalDocs })
-    }
+  componentDidMount() {
+    this.loadBooks()
   }
 
-  render () {
-    return (
-      <BookList {...this.props} {...this.state} loadBooks={this.loadBooks} />
-    )
+  async loadBooks() {
+    this.setState({ loading: true })
+
+    const res = await this.fetcher.get(`books`)
+
+    if (res.ok) {
+      const books = await res.json()
+      const listProgress = books.length
+      this.setState({ books, listProgress })
+    }
+
+    this.setState({ loading: false })
+  }
+
+  render() {
+    return <BookList {...this.props} {...this.state} />
   }
 }
 
 BookListContainer.propTypes = {
   R: PropTypes.object.isRequired,
-  fetcher: PropTypes.object.isRequired
+  fetcher: PropTypes.object.isRequired,
 }
 
-const stateToProps = () => ({
-})
+const stateToProps = () => ({})
 
 export default withRouter(connect(stateToProps)(BookListContainer))

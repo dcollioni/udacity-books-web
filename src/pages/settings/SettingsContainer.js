@@ -4,6 +4,8 @@ import Settings from './Settings'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { logout, changeLanguage } from '../../actions'
+import auth0 from 'auth0-js'
+import { authConfig } from '../../config'
 const { confirm } = window
 
 class SettingsContainer extends Component {
@@ -16,12 +18,21 @@ class SettingsContainer extends Component {
 
     this.handleClickSignOut = this.handleClickSignOut.bind(this)
     this.handleClickLanguage = this.handleClickLanguage.bind(this)
+
+    this.auth0 = new auth0.WebAuth({
+      domain: authConfig.domain,
+      clientID: authConfig.clientId,
+      redirectUri: authConfig.callbackUrl,
+      responseType: 'token id_token',
+      scope: 'openid profile email'
+    })
   }
 
   handleClickSignOut () {
     const confirmSignOut = confirm(this.props.R.strings.wantToSignOut)
 
     if (confirmSignOut) {
+      this.auth0.logout({ returnTo: authConfig.logoutReturnUrl })
       this.props.dispatch(logout())
     }
   }

@@ -3,51 +3,55 @@ main {
 }
 main > header {
   background-color: #fbfbfb;
-  display: grid;
-  grid-template-columns: 3fr 1fr;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
 }
-main > header h1 {
+main > header .content {
+  max-width: 1520px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+main > header .content h1 {
   display: inline-block;
   font-size: 18px;
   margin: 0;
   padding: 20px;
 }
-main > header h1 a {
+main > header .content h1 a {
   color: #6a0080;
   text-decoration: none;
 }
-main > header h1 a span {
+main > header .content h1 a span {
   color: #888888;
   font-size: 12px;
   font-weight: normal;
   margin-left: 8px;
 }
 @media screen and (min-width: 375px) {
-  main > header h1 {
+  main > header .content h1 {
     font-size: 20px;
   }
-  main > header h1 a span {
+  main > header .content h1 a span {
     font-size: 14px;
   }
 }
 @media screen and (min-width: 1280px) {
-  main > header h1 {
+  main > header .content h1 {
     font-size: 22px;
     padding: 20px 40px;
   }
-  main > header h1 a span {
+  main > header .content h1 a span {
     font-size: 16px;
   }
 }
-main > header .user {
+main > header .content .user {
   padding: 0 20px;
   text-align: right;
 }
-main > header .user .wrapper {
+main > header .content .user .wrapper {
   display: inline-block;
 }
-main > header .user .wrapper .picture {
+main > header .content .user .wrapper .picture {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,29 +61,29 @@ main > header .user .wrapper .picture {
   height: 35px;
   width: 35px;
 }
-main > header .user .wrapper .name {
+main > header .content .user .wrapper .name {
   display: none;
 }
 @media screen and (min-width: 375px) {
-  main > header .user .wrapper .picture {
+  main > header .content .user .wrapper .picture {
     margin-top: 13px;
     height: 40px;
     width: 40px;
   }
 }
 @media screen and (min-width: 1280px) {
-  main > header .user {
+  main > header .content .user {
     padding: 0 40px;
   }
-  main > header .user .wrapper {
+  main > header .content .user .wrapper {
     cursor: pointer;
     display: inline-block;
     padding: 0 10px;
   }
-  main > header .user .wrapper .picture {
+  main > header .content .user .wrapper .picture {
     transition: all 0.1s;
   }
-  main > header .user .wrapper .name {
+  main > header .content .user .wrapper .name {
     color: #303030;
     display: inline-block;
     font-size: 14px;
@@ -91,14 +95,14 @@ main > header .user .wrapper .name {
     max-width: 165px;
     transition: all 0.1s;
   }
-  main > header .user .wrapper:hover .picture {
+  main > header .content .user .wrapper:hover .picture {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   }
-  main > header .user .wrapper:hover .name {
+  main > header .content .user .wrapper:hover .name {
     color: #9c27b0;
   }
 }
-main.unauthorized > header {
+main.unauthorized > header .content {
   display: block;
   text-align: center;
 }
