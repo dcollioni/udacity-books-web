@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './Signin.css'
 
-const Signin = ({ R }) => {
+const Signin = ({ R, onClickSignIn }) => {
   return (
     <div id='signin'>
       <header>
@@ -10,7 +10,7 @@ const Signin = ({ R }) => {
       </header>
 
       <div className='providers'>
-        <button>Sign in</button>
+        <button onClick={onClickSignIn}>Sign in</button>
       </div>
 
       <footer>
@@ -23,7 +23,8 @@ const Signin = ({ R }) => {
 }
 
 Signin.propTypes = {
-  R: PropTypes.object.isRequired
+  R: PropTypes.object.isRequired,
+  onClickSignIn: PropTypes.func.isRequired
 }
 
 export default Signin

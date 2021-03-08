@@ -1,13 +1,17 @@
+import { apiEndpoint } from './../config'
 const { logout } = require('./../actions')
 const { fetch } = window
 
 class Fetcher {
-  constructor (authorizationToken, dispatch) {
-    this.authorizationToken = authorizationToken
+  // constructor (authorizationToken, dispatch) {
+  constructor (userId, dispatch) {
+    // this.authorizationToken = authorizationToken
+    this.userId = userId
     this.dispatch = dispatch
-    this.baseUrl = '/api'
+    this.baseUrl = apiEndpoint
     this.headers = {
-      'Authorization': `bearer ${authorizationToken}`,
+      // 'Authorization': `bearer ${authorizationToken}`,
+      'user-id': userId,
       'Content-Type': 'application/json'
     }
   }

@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Signin from './Signin'
 import { connect } from 'react-redux'
 import { withRouter, Redirect } from 'react-router-dom'
-import { login, showToast } from '../../actions'
-const { fetch } = window
+import auth0 from 'auth0-js'
+import { authConfig } from '../../config'
 
 class SigninContainer extends Component {
   constructor (props) {
@@ -14,10 +14,15 @@ class SigninContainer extends Component {
       success: !!props.user
     }
 
-    this.handleGoogleSignInSuccess = this.handleGoogleSignInSuccess.bind(this)
-    this.handleGoogleSignInFailure = this.handleGoogleSignInFailure.bind(this)
-    this.handleFacebookSignInSuccess = this.handleFacebookSignInSuccess.bind(this)
-    this.handleFacebookSignInFailure = this.handleFacebookSignInFailure.bind(this)
+    this.handleClickSignIn = this.handleClickSignIn.bind(this)
+
+    this.auth0 = new auth0.WebAuth({
+      domain: authConfig.domain,
+      clientID: authConfig.clientId,
+      redirectUri: authConfig.callbackUrl,
+      responseType: 'token id_token',
+      scope: 'openid profile email'
+    })
   }
 
   componentDidUpdate (prevProps) {
@@ -26,48 +31,9 @@ class SigninContainer extends Component {
     }
   }
 
-  async handleGoogleSignInSuccess ({ tokenId }) {
-    const res = await fetch('/api/auth/signin', {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'post',
-      body: JSON.stringify({ provider: 'google', token: tokenId })
-    })
-
-    if (res.ok) {
-      const user = await res.json()
-      this.props.dispatch(login(user))
-    } else {
-      const errorMessage = this.props.R.strings.failedToSignin
-      this.props.dispatch(showToast(errorMessage))
-    }
-  }
-
-  async handleGoogleSignInFailure ({ error, details }) {
-    console.log(error, details)
-    const errorMessage = this.props.R.strings.failedToSignin
-    this.props.dispatch(showToast(errorMessage))
-  }
-
-  async handleFacebookSignInSuccess (response) {
-    const res = await fetch('/api/auth/signin', {
-      headers: { 'Content-Type': 'application/json' },
-      method: 'post',
-      body: JSON.stringify({ provider: 'facebook', token: response.accessToken })
-    })
-
-    if (res.ok) {
-      const user = await res.json()
-      this.props.dispatch(login(user))
-    } else {
-      const errorMessage = this.props.R.strings.failedToSignin
-      this.props.dispatch(showToast(errorMessage))
-    }
-  }
-
-  async handleFacebookSignInFailure (response) {
-    console.log(response)
-    const errorMessage = this.props.R.strings.failedToSignin
-    this.props.dispatch(showToast(errorMessage))
+  async handleClickSignIn () {
+    console.log('handleClickSignIn')
+    this.auth0.authorize()
   }
 
   render () {
@@ -76,10 +42,7 @@ class SigninContainer extends Component {
     }
 
     return <Signin {...this.props} {...this.state}
-      onGoogleSignInSuccess={this.handleGoogleSignInSuccess}
-      onGoogleSignInFailure={this.handleGoogleSignInFailure}
-      onFacebookSignInSuccess={this.handleFacebookSignInSuccess}
-      onFacebookSignInFailure={this.handleFacebookSignInFailure} />
+      onClickSignIn={this.handleClickSignIn} />
   }
 }
 
