@@ -27,13 +27,16 @@ class BookFormContainer extends Component {
       publicationYear: (book && book.publicationYear) ? book.publicationYear.toString() : '',
       publisher: (book && book.publisher) || '',
       isbn: (book && book.isbn) || '',
-      additionalInfo: (book && book.additionalInfo) || ''
+      additionalInfo: (book && book.additionalInfo) || '',
+      coverUrl: (book && book.coverUrl) || '',
+      coverFile: undefined
     }
 
     this.loadBook = this.loadBook.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleCoverFileChange = this.handleCoverFileChange.bind(this)
   }
 
   componentDidMount () {
@@ -42,6 +45,15 @@ class BookFormContainer extends Component {
     if (id) {
       this.loadBook(id)
     }
+  }
+
+  handleCoverFileChange (event) {
+    const files = event.target.files
+    if (!files) return
+
+    this.setState({
+      coverFile: files[0]
+    })
   }
 
   async loadBook (id) {
@@ -57,7 +69,8 @@ class BookFormContainer extends Component {
         publicationYear: book.publicationYear ? book.publicationYear.toString() : '',
         publisher: book.publisher,
         isbn: book.isbn,
-        additionalInfo: book.additionalInfo
+        additionalInfo: book.additionalInfo,
+        coverUrl: book.coverUrl
       }))
     } else {
       this.setState(() => ({ redirect: true }))
@@ -72,7 +85,18 @@ class BookFormContainer extends Component {
   async handleSubmit (e) {
     e.preventDefault()
 
-    const { id, title, author, subject, length, publicationYear, publisher, isbn, additionalInfo } = this.state
+    this.setState(() => ({ saving: true }))
+
+    const { id, title, author, subject, length, publicationYear, publisher, isbn, additionalInfo, coverFile } = this.state
+    let { coverUrl } = this.state
+
+    if (coverFile) {
+      coverUrl = coverFile.name
+      const signedUrlRequest = await this.fetcher.get(`aws/signedUrl/${coverUrl}`)
+      const { url: signedUrl } = await signedUrlRequest.json()
+      await fetch(signedUrl, { method: 'PUT', body: coverFile })
+    }
+
     const book = {
       title: title.trim(),
       author: author.trim(),
@@ -81,10 +105,9 @@ class BookFormContainer extends Component {
       isbn: isbn.trim(),
       additionalInfo: additionalInfo.trim(),
       length,
-      publicationYear
+      publicationYear,
+      coverUrl
     }
-
-    this.setState(() => ({ saving: true }))
 
     if (!id) {
       const res = await this.fetcher.post('books', book)
@@ -131,7 +154,8 @@ class BookFormContainer extends Component {
         {...this.state}
         onChange={this.handleChange}
         onSubmit={this.handleSubmit}
-        onClickDelete={this.handleDelete} />
+        onClickDelete={this.handleDelete}
+        onCoverFileChange={this.handleCoverFileChange} />
   }
 }
 

@@ -15,9 +15,11 @@ const BookForm = ({
   publisher,
   isbn,
   additionalInfo,
+  coverUrl,
   onChange,
   onSubmit,
   onClickDelete,
+  onCoverFileChange,
   saving }) =>
   (
     <div id='book-form'>
@@ -113,6 +115,16 @@ const BookForm = ({
           readOnly={saving}
           pattern='.*[\w]+.*' />
 
+        <InputField
+          type='file'
+          label={R.strings.coverPicture}
+          name='coverFile'
+          onChange={onCoverFileChange}
+          readOnly={saving}
+          accept="image/*" />
+
+        <span className="image-preview" style={coverUrl ? { backgroundImage: `url(${coverUrl})` } : {}} />
+
         <div>
           <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
         </div>
@@ -132,7 +144,8 @@ BookForm.propTypes = {
   isbn: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
-  onClickDelete: PropTypes.func.isRequired
+  onClickDelete: PropTypes.func.isRequired,
+  onCoverFileChange: PropTypes.func.isRequired
 }
 
 export default BookForm

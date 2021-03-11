@@ -34,6 +34,11 @@
       margin-top: 10px;
     }
 
+    .image-preview {
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
     @media screen and (min-width: @phone-width) {
       grid-template-columns: repeat(2, 1fr);
 
@@ -47,7 +52,7 @@
         grid-column: span 2;
       }
 
-      :nth-child(9) {
+      :nth-child(11) {
         text-align: right;
       }
 
@@ -62,6 +67,11 @@
       :nth-child(8),
       :nth-child(9) {
         grid-column: span 4;
+      }
+
+      :nth-child(10),
+      :nth-child(11) {
+        grid-column: span 2;
       }
 
       button {

@@ -25,6 +25,10 @@
 #book-form form button {
   margin-top: 10px;
 }
+#book-form form .image-preview {
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 @media screen and (min-width: 375px) {
   #book-form form {
     grid-template-columns: repeat(2, 1fr);
@@ -38,7 +42,7 @@
   #book-form form :nth-child(9) {
     grid-column: span 2;
   }
-  #book-form form :nth-child(9) {
+  #book-form form :nth-child(11) {
     text-align: right;
   }
   #book-form form button {
@@ -52,6 +56,10 @@
   #book-form form :nth-child(8),
   #book-form form :nth-child(9) {
     grid-column: span 4;
+  }
+  #book-form form :nth-child(10),
+  #book-form form :nth-child(11) {
+    grid-column: span 2;
   }
   #book-form form button {
     max-width: 180px;

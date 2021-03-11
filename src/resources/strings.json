@@ -9,6 +9,7 @@
   "isbn": "ISBN",
   "publicationYear": "Publication year",
   "additionalInfo": "Additional info",
+  "coverPicture": "Cover picture",
   "addNewBook": "Add new book",
   "editBook": "Edit book",
   "saveBook": "Save book",

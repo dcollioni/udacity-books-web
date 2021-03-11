@@ -9,6 +9,7 @@
   "isbn": "ISBN",
   "publicationYear": "Ano de publicação",
   "additionalInfo": "Informações adicionais",
+  "coverPicture": "Imagem de capa",
   "addNewBook": "Adicionar livro",
   "editBook": "Editar livro",
   "saveBook": "Salvar livro",
