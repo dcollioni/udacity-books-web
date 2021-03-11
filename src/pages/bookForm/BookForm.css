@@ -25,22 +25,37 @@
 #book-form form button {
   margin-top: 10px;
 }
-#book-form form .image-preview {
+#book-form form .cover-picture {
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+  width: 90px;
+  height: 120px;
 }
 @media screen and (min-width: 375px) {
   #book-form form {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 90px repeat(5, 1fr);
   }
-  #book-form form :nth-child(1),
+  #book-form form .cover-picture {
+    grid-row: span 2;
+  }
   #book-form form :nth-child(2),
-  #book-form form :nth-child(3),
+  #book-form form :nth-child(3) {
+    grid-column: span 5;
+  }
+  #book-form form :nth-child(5),
   #book-form form :nth-child(6),
   #book-form form :nth-child(7),
-  #book-form form :nth-child(8),
-  #book-form form :nth-child(9) {
-    grid-column: span 2;
+  #book-form form :nth-child(8) {
+    grid-column: span 3;
+  }
+  #book-form form :nth-child(4),
+  #book-form form :nth-child(9),
+  #book-form form :nth-child(10),
+  #book-form form :nth-child(11) {
+    grid-column: span 6;
   }
   #book-form form :nth-child(11) {
     text-align: right;
@@ -51,15 +66,31 @@
 }
 @media screen and (min-width: 1280px) {
   #book-form form {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: 146px repeat(5, 1fr);
   }
-  #book-form form :nth-child(8),
-  #book-form form :nth-child(9) {
-    grid-column: span 4;
+  #book-form form .cover-picture {
+    grid-row: span 3;
+    width: 146px;
+    height: 200px;
   }
+  #book-form form :nth-child(2),
+  #book-form form :nth-child(3),
+  #book-form form :nth-child(4) {
+    grid-column: span 5;
+  }
+  #book-form form :nth-child(5),
+  #book-form form :nth-child(6),
+  #book-form form :nth-child(7),
+  #book-form form :nth-child(8) {
+    grid-column: span 3;
+  }
+  #book-form form :nth-child(9),
   #book-form form :nth-child(10),
   #book-form form :nth-child(11) {
-    grid-column: span 2;
+    grid-column: span 6;
+  }
+  #book-form form :nth-child(11) {
+    text-align: right;
   }
   #book-form form button {
     max-width: 180px;

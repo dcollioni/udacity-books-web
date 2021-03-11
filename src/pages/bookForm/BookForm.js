@@ -32,6 +32,10 @@ const BookForm = ({
         </nav>
       </header>
       <form method='post' action='/' onSubmit={onSubmit}>
+        <span className="cover-picture" style={{
+          backgroundImage: `url(${coverUrl || '/images/no-image.png'})`
+        }} />
+
         <InputField
           label={R.strings.title}
           name='title'
@@ -122,8 +126,6 @@ const BookForm = ({
           onChange={onCoverFileChange}
           readOnly={saving}
           accept="image/*" />
-
-        <span className="image-preview" style={coverUrl ? { backgroundImage: `url(${coverUrl})` } : {}} />
 
         <div>
           <InputButton type='submit' text={saving ? (`${R.strings.saving}...`) : R.strings.saveBook} disabled={saving} />
