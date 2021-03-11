@@ -88,14 +88,6 @@ class BookFormContainer extends Component {
     this.setState(() => ({ saving: true }))
 
     const { id, title, author, subject, length, publicationYear, publisher, isbn, additionalInfo, coverFile } = this.state
-    let { coverUrl } = this.state
-
-    if (coverFile) {
-      coverUrl = coverFile.name
-      const signedUrlRequest = await this.fetcher.get(`aws/signedUrl/${coverUrl}`)
-      const { url: signedUrl } = await signedUrlRequest.json()
-      await fetch(signedUrl, { method: 'PUT', body: coverFile })
-    }
 
     const book = {
       title: title.trim(),
@@ -106,7 +98,13 @@ class BookFormContainer extends Component {
       additionalInfo: additionalInfo.trim(),
       length,
       publicationYear,
-      coverUrl
+    }
+
+    if (coverFile) {
+      book.coverUrl = coverFile.name
+      const signedUrlRequest = await this.fetcher.get(`aws/signedUrl/${book.coverUrl}`)
+      const { url: signedUrl } = await signedUrlRequest.json()
+      await fetch(signedUrl, { method: 'PUT', body: coverFile })
     }
 
     if (!id) {

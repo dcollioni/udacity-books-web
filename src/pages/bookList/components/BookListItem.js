@@ -7,6 +7,7 @@ const BookListItem = ({ book }) => (
     pathname: `/books/${book._id}`,
     state: { book }
   }}>
+    <span style={book.coverUrl ? { backgroundImage: `url(${book.coverUrl})` } : {}}></span>
     <span>{book.title}</span>
     <span>{book.author}</span>
     <span>{book.subject}</span>
