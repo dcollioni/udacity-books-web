@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: udacity-books-web
-        image: dcollioni/udacity-books-web:latest
+        image: dcollioni/udacity-books-web:0.0.1
         imagePullPolicy: Always
         resources:
           requests:
@@ -28,7 +28,7 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-          - name: udacity-books-web
+          - name: udacity-books-web-volume
             readOnly: true
             mountPath: "/usr/share/nginx/html/config.js"
             subPath: "config.js"

@@ -2,6 +2,9 @@
 
 set -o allexport; source .env; set +o allexport;
 
+set -e
+cd $(dirname "$0")
+
 API_ENDPOINT=$REACT_APP_API_ENDPOINT
 AUTH_DOMAIN=$REACT_APP_AUTH_DOMAIN
 AUTH_CLIENT_ID=$REACT_APP_AUTH_CLIENT_ID
