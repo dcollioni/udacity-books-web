@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udacity-books-web
+  labels:
+    app: udacity-books-web
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udacity-books-web
+  template:
+    metadata:
+      labels:
+        app: udacity-books-web
+    spec:
+      containers:
+      - name: udacity-books-web
+        image: dcollioni/udacity-books-web:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "1024Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
+        volumeMounts:
+          - name: udacity-books-web
+            readOnly: true
+            mountPath: "/usr/share/nginx/html/config.js"
+            subPath: "config.js"
+      volumes:
+        - name: udacity-books-web-volume
+          configMap:
+            name: udacity-books-web-config

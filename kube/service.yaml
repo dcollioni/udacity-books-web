@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: udacity-books-web
+  name: udacity-books-web
+  namespace: default
+  selfLink: /api/v1/namespaces/default/services/udacity-books-web
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: udacity-books-web
+  sessionAffinity: None
+  type: LoadBalancer

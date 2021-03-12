@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: udacity-books-web-config
+data:
+  config.js: |-
+    window.env = {
+      API_ENDPOINT: '',
+      AUTH_DOMAIN: '',
+      AUTH_CLIENT_ID: '',
+      AUTH_CALLBACK_URL: '',
+      AUTH_LOGOUT_RETURN_URL: '',
+      PERSIST_ENCRYPT_KEY: '',
+    }
+---

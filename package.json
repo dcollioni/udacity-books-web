@@ -10,7 +10,6 @@
   "bugs": {
     "url": "https://github.com/dcollioni/udacity-books-web/issues"
   },
-  "homepage": "https://github.com/dcollioni/udacity-books-web#readme",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
