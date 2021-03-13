@@ -1,1 +1,19 @@
 # udacity-books-web
+
+## run locally
+- create a `.env` file in the root with the following:
+  ```
+  REACT_APP_API_ENDPOINT=...
+  REACT_APP_AUTH_DOMAIN=...
+  REACT_APP_AUTH_CLIENT_ID=...
+  REACT_APP_AUTH_CALLBACK_URL=...
+  REACT_APP_AUTH_LOGOUT_RETURN_URL=...
+  REACT_APP_PERSIST_ENCRYPT_KEY=...
+  ```
+- run `npm install`
+- run `npm start`
+
+
+## deploy to kube
+- create a `.prod.env` file in the root with the same keys from `.env`
+- run `./kube/deploy.sh`
