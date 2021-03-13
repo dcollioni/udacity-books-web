@@ -1,6 +1,6 @@
 #! /bin/bash
 
-set -o allexport; source .env; set +o allexport;
+set -o allexport; source .prod.env; set +o allexport;
 
 set -e
 cd $(dirname "$0")
