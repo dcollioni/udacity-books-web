@@ -15,8 +15,7 @@ class AuthorizedRoute extends Component {
 
         props.R = R
         props.user = user
-        // props.fetcher = new Fetcher(user.token, dispatch)
-        props.fetcher = new Fetcher(user.sub, dispatch)
+        props.fetcher = new Fetcher(user.token, user.sub, dispatch)
         return <Component {...props} />
       }} />
     )

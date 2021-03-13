@@ -134,10 +134,16 @@
     grid-template-columns: 1fr 1fr;
     gap: 12px;
   }
+  #book-list .book-list #list-loader {
+    grid-column: span 2;
+  }
 }
 @media screen and (min-width: 1280px) {
   #book-list .book-list {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 15px;
+  }
+  #book-list .book-list #list-loader {
+    grid-column: span 3;
   }
 }
